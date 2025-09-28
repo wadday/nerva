@@ -7,29 +7,33 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { urlIsActive } from '@/lib/utils';
-import { type NavItem } from '@/types';
+import { type AdminMenuItem } from '@/types';
 import { Link, usePage } from '@inertiajs/vue3';
+import Icon from '@/components/Icon.vue';
 
 defineProps<{
-    items: NavItem[];
+    items: AdminMenuItem[];
 }>();
 
 const page = usePage();
 </script>
 
 <template>
-    <SidebarGroup class="px-2 py-0">
-        <SidebarGroupLabel>Platform</SidebarGroupLabel>
+    <SidebarGroup
+        class="px-2 py-0"
+        v-for="item in items" :key="item.name"
+    >
+        <SidebarGroupLabel>{{ item.name }}</SidebarGroupLabel>
         <SidebarMenu>
-            <SidebarMenuItem v-for="item in items" :key="item.title">
+            <SidebarMenuItem v-for="child in item.children" :key="child.name">
                 <SidebarMenuButton
                     as-child
-                    :is-active="urlIsActive(item.href, page.url)"
-                    :tooltip="item.title"
+                    :is-active="child.active"
+                    :tooltip="child.name"
                 >
-                    <Link :href="item.href">
-                        <component :is="item.icon" />
-                        <span>{{ item.title }}</span>
+                    <Link :href="child.route">
+                        <Icon :name="child.icon" />
+                        <span>{{ child.name }}</span>
                     </Link>
                 </SidebarMenuButton>
             </SidebarMenuItem>

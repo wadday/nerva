@@ -12,10 +12,14 @@ import {
     SidebarMenuItem,
 } from '@/components/ui/sidebar';
 import { dashboard } from '@/routes';
-import { type NavItem } from '@/types';
-import { Link } from '@inertiajs/vue3';
+import { type NavItem, type AdminMenuItem } from '@/types';
+import { Link, usePage } from '@inertiajs/vue3';
 import { BookOpen, Folder, LayoutGrid } from 'lucide-vue-next';
 import AppLogo from './AppLogo.vue';
+import { computed } from 'vue';
+
+const page = usePage();
+const adminMenu = computed(() => page.props.primary_menu as AdminMenuItem[]);
 
 const mainNavItems: NavItem[] = [
     {
@@ -46,7 +50,7 @@ const footerNavItems: NavItem[] = [
                 <SidebarMenuItem>
                     <SidebarMenuButton size="lg" as-child>
                         <Link :href="dashboard()">
-                            <AppLogo />
+                            <AppLogo /> Nerva
                         </Link>
                     </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -54,7 +58,7 @@ const footerNavItems: NavItem[] = [
         </SidebarHeader>
 
         <SidebarContent>
-            <NavMain :items="mainNavItems" />
+            <NavMain :items="adminMenu" />
         </SidebarContent>
 
         <SidebarFooter>

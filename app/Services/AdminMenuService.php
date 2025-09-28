@@ -11,7 +11,7 @@ class AdminMenuService
     {
         return MenuBuilder::make()
             ->guard(config('auth.defaults.guard'))
-            ->items([
+            ->group('Manage', [
                 MenuItem::make('Nerva')
                     ->route('for-you')
                     ->icon('ArrowLeft')

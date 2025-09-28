@@ -17,6 +17,22 @@ export interface NavItem {
     isActive?: boolean;
 }
 
+export interface AdminMenuChild {
+    name: string;
+    route: string;
+    icon?: string;
+    active: boolean;
+    is_enabled: boolean;
+    is_visible: boolean;
+    static: boolean;
+    route_params?: Record<string, any>;
+}
+
+export interface AdminMenuItem {
+    name: string;
+    children: AdminMenuChild[];
+}
+
 export type AppPageProps<
     T extends Record<string, unknown> = Record<string, unknown>,
 > = T & {

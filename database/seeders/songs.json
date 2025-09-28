@@ -1,0 +1,18 @@
+[
+    {
+        "slug": "4f01a120-c0d0-4dde-8cbf-3b36133f01ee",
+        "title": "Dheere Dheere Se",
+        "song_url": "https://nerva.test/songs/dheere-dheere-se.mp3",
+        "cover": "https://cdn2.suno.ai/image_video_upload_40efe98e-e8c9-45bf-9e36-5a691d3261d0_snapshot_0s.jpeg",
+        "duration": "223",
+        "status": "published"
+    },
+    {
+        "slug": "643a6345-3849-426a-b298-283c5cc55073",
+        "title": "Mujse Judha Kyu Hua",
+        "song_url": "https://nerva.test/songs/mujse-judha.mp3",
+        "cover": "https://cdn2.suno.ai/643a6345-3849-426a-b298-283c5cc55073_f1d883f1.jpeg",
+        "duration": "345",
+        "status": "published"
+    }
+]

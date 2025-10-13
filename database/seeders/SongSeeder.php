@@ -18,7 +18,7 @@ class SongSeeder extends Seeder
             Song::query()
                 ->firstOrCreate([
                     'slug' => $song['slug'],
-                    ], [
+                ], [
                     'title' => $song['title'],
                     'song_url' => $song['song_url'],
                     'cover' => $song['cover'],

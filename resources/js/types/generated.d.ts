@@ -17,6 +17,26 @@ reaction_type: string | null;
 created_at: string | null;
 updated_at: string | null;
 };
+export type PulseData = {
+id: number;
+uuid: string;
+user_id: number;
+song_id: number | null;
+caption: string | null;
+selected_timestamp: string | null;
+likes_count: number | null;
+comments_count: number | null;
+shares_count: number | null;
+plays_count: number | null;
+allow_comments: boolean;
+status: App.Enums.PulseStatus;
+visibility: App.Enums.VisibilityEnum;
+created_at: string | null;
+updated_at: string | null;
+song: App.Data.SongData | null;
+medias: Array<any>;
+user: any | null;
+};
 export type SongData = {
 id: number;
 slug: string;
@@ -43,5 +63,7 @@ updated_at: string | null;
 };
 }
 declare namespace App.Enums {
+export type PulseStatus = 'draft' | 'published';
 export type StreamerLevel = 'bronze' | 'silver' | 'gold' | 'platinum';
+export type VisibilityEnum = 'public' | 'private' | 'friends-only';
 }

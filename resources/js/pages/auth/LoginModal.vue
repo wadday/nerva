@@ -1,5 +1,5 @@
 <template>
-    <Dialog :default-open="true">
+    <Dialog>
         <DialogTrigger as-child><slot /></DialogTrigger>
         <DialogContent class="sm:max-w-[450px] p-0">
             <DialogTitle />
@@ -33,16 +33,16 @@
                         </div>
                     </Form>
                 </div>
-                <DialogFooter class="bg-neutral-800 rounded-b-lg">
+                <DialogFooter class="bg-neutral-100 dark:bg-neutral-800 rounded-b-lg">
                     <div class="w-full">
                         <div class="text-center text-gray-400 leading-normal text-sm py-4 w-full">
-                            By continuing with an account located in <span class="font-bold text-white">Maldives</span>, you
-                            <br />agree to our <span class="font-bold text-white">Terms of Service</span> and acknowledge that
-                            <br />you have read our <span class="font-bold text-white">Privacy Policy.</span>
+                            By continuing with an account located in <span class="font-bold dark:text-white">Maldives</span>, you
+                            <br />agree to our <span class="font-bold dark:text-white">Terms of Service</span> and acknowledge that
+                            <br />you have read our <span class="font-bold dark:text-white">Privacy Policy.</span>
                         </div>
                         <div class="w-full bg-gray-600 h-px"></div>
-                        <div class="py-5 text-center">
-                            Don't have an account? <Button variant="ghost" class="text-lg text-cyan-400">Sign up</Button>
+                        <div class="py-5 text-center text-sm">
+                            Don't have an account? <Button variant="ghost" class="text-cyan-400">Sign up</Button>
                         </div>
                     </div>
                 </DialogFooter>

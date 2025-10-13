@@ -67,6 +67,22 @@ class User extends Authenticatable
     }
 
     /**
+     * @return HasMany<Song, User>
+     */
+    public function songs(): HasMany
+    {
+        return $this->hasMany(Song::class);
+    }
+
+    /**
+     * @return HasMany<Pulse, User>
+     */
+    public function pulses(): HasMany
+    {
+        return $this->hasMany(Pulse::class);
+    }
+
+    /**
      * @return HasMany<StreamLike, User>
      */
     public function streamLikes(): HasMany

@@ -1,22 +1,25 @@
 <template>
-    <DeckLayout :breadcrumbs="breadcrumbs">
-        <div class="space-y-4 py-2">
+    <AppLayout :breadcrumbs="breadcrumbs">
+
+        <div
+            class="flex h-full flex-1 flex-col gap-4 overflow-x-auto rounded-xl p-4"
+        >
             <ProfileHeader />
 
             <InsightSection />
 
             <RecentPosts />
         </div>
-    </DeckLayout>
+    </AppLayout>
 </template>
 
 <script setup lang="ts">
-import DeckLayout from '@/layouts/app/DeckLayout.vue';
 import type { BreadcrumbItem, User } from '@/types';
 import deck from '@/routes/deck';
 import ProfileHeader from '@/pages/Deck/Dashboard/Partials/ProfileHeader.vue';
 import InsightSection from '@/pages/Deck/Dashboard/Partials/InsightSection.vue';
 import RecentPosts from '@/pages/Deck/Dashboard/Partials/RecentPosts.vue';
+import AppLayout from '@/layouts/AppLayout.vue';
 
 const breadcrumbs: BreadcrumbItem[] = [
     {

@@ -386,3 +386,29 @@
         opacity: 0;
     }
 }
+
+
+.slide-pulse-enter-active,
+.slide-pulse-leave-active {
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    position: absolute;
+    width: 100%;
+}
+
+.slide-pulse-enter-from {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+.slide-pulse-enter-to {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.slide-pulse-leave-from {
+    transform: translateY(0);
+    opacity: 1;
+}
+.slide-pulse-leave-to {
+    transform: translateY(100%);
+    opacity: 0;
+}

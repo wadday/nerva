@@ -15,15 +15,16 @@ return new class extends Migration
             $table->id();
             $table->uuid('uuid')->unique()->index();
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('song_id')->nullable()->constrained()->nullOnDelete();
-            $table->string('audio_url')->nullable();
+            $table->foreignId('song_id')->nullable()->constrained()->cascadeOnDelete();
             $table->text('caption')->nullable();
+            $table->float('selected_timestamp')->nullable();
             $table->unsignedBigInteger('likes_count')->default(0);
             $table->unsignedBigInteger('comments_count')->default(0);
             $table->unsignedBigInteger('shares_count')->default(0);
             $table->unsignedBigInteger('plays_count')->default(0);
             $table->boolean('allow_comments');
             $table->string('status', 50)->index();
+            $table->string('visibility', 50)->index();
             $table->timestamps();
         });
     }

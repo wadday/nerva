@@ -2,7 +2,7 @@
         <div class="slide-in-glass flex-1">
             <div class="flex h-[calc(100vh-150px)] w-full justify-center gap-x-2">
                 <Transition :name="transitionName" mode="out-in" @after-enter="onAfterEnter">
-                    <div class="relative" :key="currentPulse.uuid">
+                    <div v-if="currentPulse" class="relative" :key="currentPulse.uuid">
                         <video
                             ref="videoRef"
                             :src="currentPulse.medias[0].url"
@@ -53,7 +53,7 @@
                         </div>
                     </div>
                 </Transition>
-                <div class="relative w-20">
+                <div class="relative w-20" v-if="currentPulse">
                     <div class="animate-float flex h-full items-end">
                         <div class="flex flex-col gap-3">
                             <div class="mb-2 space-y-2 text-center">

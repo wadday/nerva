@@ -8,6 +8,9 @@ class PulseController extends Controller
 {
     public function __invoke(?string $pulseId = null)
     {
+        $next = null;
+        $last = null;
+
         $pulse = $pulseId
             ? Pulse::query()
                 ->where('uuid', $pulseId)
@@ -18,18 +21,21 @@ class PulseController extends Controller
                 ->published()
                 ->first();
 
-        $last = Pulse::query()
-            ->where('id', '<', $pulse->id)
-            ->orderByDesc('id')
-            ->published()
-            ->first();
-        $next = Pulse::query()
-            ->where('id', '>', $pulse->id)
-            ->orderBy('id')
-            ->published()
-            ->first();
+        if ($pulse) {
+            $last = Pulse::query()
+                ->where('id', '<', $pulse->id)
+                ->orderByDesc('id')
+                ->published()
+                ->first();
+            $next = Pulse::query()
+                ->where('id', '>', $pulse->id)
+                ->orderBy('id')
+                ->published()
+                ->first();
 
-        $pulse->loadMissing(['medias', 'song', 'user:id,name,avatar,username,is_live,is_verified']);
+            $pulse->loadMissing(['medias', 'song', 'user:id,name,avatar,username,is_live,is_verified']);
+        }
+
 
         return inertia('Pulse/ForYou', [
             'title' => 'Feels Alive',

@@ -20,7 +20,7 @@ class SongSeeder extends Seeder
                     'slug' => $song['slug'],
                 ], [
                     'title' => $song['title'],
-                    'song_url' => $song['song_url'],
+                    'song_url' => config('app.url').$song['song_url'],
                     'cover' => $song['cover'],
                     'status' => $song['status'],
                     'duration' => $song['duration'],
